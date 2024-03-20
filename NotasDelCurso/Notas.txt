@@ -89,3 +89,6 @@ VAR Y LET
     podriamos decir que utilizar var al crear aplicaciones y paginas mas complejas es como una mala practica, ya que al declarar cualquier
     variable de este modo se estarian almacenando dentro del objeto window, el cual es literalmente el objeto de la ventana en donde
     se ejecutan nuestros scripts
+
+    // const CONSTANTE_VACIA ----no podemos declarar una constante sin darle ningun valor
+    //CABE ACLARAR QUE EN EL CASO DE LOS OBJETOS A PESAR DE SER CONST PODEMOS MODIFICAR SUS PROPIEDADES EN EL FLUJO DE NUESTRO CODIGO
