@@ -1,0 +1,91 @@
+CARACTERISTICAS DE JAVASCRIPT
+
+    JavaScript es uno de los pocos lenguajes que cumplen con el isomorfismo
+    ya que sirve para el 
+        frontend(JS)
+        backend(node.js)
+        Persistencia de datos(MongoDb,CouchDB,etc...)
+
+    es un ;lenguaje de alto nivel; es decir que nos facilita cosas que no lo hacen los lenguajes de bajo nivel como cuestiones de memoria etc
+    es un ;lenguaje interpretado; es decir que se compila conforme se va ejecutando en lugar de compilarse antes de ejecutar
+    es un ;lenguaje dinamico; es decir que sin importar el navegador en el que se ejecute cada uno tiene su motor que ejecuta js de forma interpretada
+    es un ;lenguaje debilmente tipado;es decir que una variable tiene su tipo de dato dependiendo de su valor
+    es un ;lenguaje multiparadigma; es decir que nos sirve para POO, programacion estructurada, programacion funcional, con sentencias imperativas y o declarativas
+    es un ;lenguaje CaseSensitive; es decir que no detectara un mismo dato o variable si no esta exactamente escrito igual tomando en cuenta mayusculas y minusculas
+    es un ;lenguaje sin puntos y comas obligatorios;
+
+ESCRITURA DE CODIGO
+    los identificadores(nombres de las variables)
+    deben obligatoriamente iniciar con
+        una letra          a
+        un signo de dollar $
+        un guion bajo      _
+        nunca utilizar numeros u otros caracteres especiales ademas de "_" o "$" para el nombre de un identificador
+
+    utilizar snake_case en los nombres de archivos:
+        mi_archivo_javascript.js
+
+    utilizar UPPER_CASE en las constantes
+        const UNA_CONSTANTE="soy una constante",
+            PI=3.1416
+
+    utilizar UpperCammelCase en objetos y clases
+    utilizar lowerCammelCase en funciones, instancias, primitivos, etc
+        class SerHumano
+        {
+            constructor(nombre,genero)
+            {
+                this.nombre = nombre
+                this.genero = genero
+            }
+            miNombreEs(){
+                return ´mi nombre es ${this.nombre}´
+            }
+        }
+
+PALABRAS RESERVADAS
+    A: Async, Await,
+    B: Break,
+    C: Case, Catch, Class, Const, Continue,
+    D: Debugger, Default, Delete, Do,
+    E: Else, Export, Extends,
+    F: False, Finally, For, Function,
+    I: If, Import, In, Instanceof,
+    N: New, Null,
+    R: Return,
+    S: Super, Switch,
+    T: This, Throw, True, Try, Typeof,
+    V: Var, Void,
+    W: While, With,
+    Y: Yield
+
+ORDENAMIENTO DE CODIGO
+    1:Importacion de los modulos
+    2:Declaracion de variables
+    3:Declaracion de funciones
+    4:Ejecucion del codigo
+
+TIPOS DE DATOS
+    Primitivos  
+        string
+        number
+        boolean
+        null
+        undefined
+        NaN
+    Compuestos  //estos a comparacion de los primitivos es como si tuvieran 
+                //2 coordenadas ya que pueden almacenar multiples datos dentro de ellos
+        object = {}
+        array = []
+        function = () {}
+        Class {}
+        etc
+
+VAR Y LET
+    cuando declaramos una variable utilizando "var", significa que esta va a tener un alcance global, es decir que aunque este declarada
+    dentro de una funcion o lo que sea, esta se va a tratar como si se hubiese colocado desde un inicio del codigo es decir de forma global
+        por el contrario al declararla utilizando "let", significa que esta variable solo tendra alcance dentro del bloque en donde 
+        fue declarada, vease una funcion, objeto o ciclo ,etc
+    podriamos decir que utilizar var al crear aplicaciones y paginas mas complejas es como una mala practica, ya que al declarar cualquier
+    variable de este modo se estarian almacenando dentro del objeto window, el cual es literalmente el objeto de la ventana en donde
+    se ejecutan nuestros scripts
