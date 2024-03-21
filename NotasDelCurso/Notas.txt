@@ -92,3 +92,23 @@ VAR Y LET
 
     // const CONSTANTE_VACIA ----no podemos declarar una constante sin darle ningun valor
     //CABE ACLARAR QUE EN EL CASO DE LOS OBJETOS A PESAR DE SER CONST PODEMOS MODIFICAR SUS PROPIEDADES EN EL FLUJO DE NUESTRO CODIGO
+
+STRINGS Y SUS METODOS
+    let nombre = "Jason"
+    let apellido ="AnDerSon"
+    let hola = new String("hola mundo") ///constructor formal para declarar un string correctamente
+
+
+    console.log
+        (
+            nombre.length,
+            apellido.length,//length nos regresara el numero de caracteres que tiene una cadena
+            hola.length,
+            nombre.toUpperCase(),//toUpperCase nos regresara una cadena en mayusuculas
+            apellido.toLowerCase(),//toLowerCase nos regresara una cadena en minusuculas
+            lorem.includes("dolor"),
+            lorem.includes("jason"),//includes nos ayuda a saber si una cadena incluye otra especificada dentro del parametro
+            demostrarTrim.trim(),//trim nos ayuda a quitar espacios afuera del texto si es que los tiene
+            lorem.split(" "),
+            lorem.split(",")//split nos ayuda a separar cadenas por el caracteer o la cadena que pongamos como parametro
+        )
