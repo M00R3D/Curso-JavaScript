@@ -112,3 +112,28 @@ STRINGS Y SUS METODOS
             lorem.split(" "),
             lorem.split(",")//split nos ayuda a separar cadenas por el caracteer o la cadena que pongamos como parametro
         )
+    
+    Concatenar STRINGS
+        //Concatenar strings
+
+            let saludar = hola + " " + nombre + " " + apellido
+            console.log(saludar)
+
+            let saludar2 = `hola ${nombre} ${apellido}`
+            console.log(saludar2)
+
+    String templates (` `)
+            let listaDesord="<ul><li>primero</li><li>segundo</li><li>tercero</li><li>cuarto</li><li>ultimo</li></ul>"
+
+            ///los template strings es decir los que se declaran con ` ` y no con " " nos sirven mas porque pueden tener saltos de linea
+            //y es mas legible la sintaxis al introducirles variables con ${variable} en lugar de tener que estar sumando muchas string
+            let listaDesord2= 
+            `
+                <ul>
+                <li>primero</li>
+                <li>segundo</li>
+                <li>tercero</li>
+                <li>cuarto</li>
+                <li>ultimo</li>
+                </ul>
+            `
