@@ -137,3 +137,50 @@ STRINGS Y SUS METODOS
                 <li>ultimo</li>
                 </ul>
             `
+NUMEROS
+            let a = 6
+            let b = new Number(5)//al crearlo con constructor pasa algo similar al string que nos puede decir mas propiedades en la consola
+            let c = 6.552
+            let d = "9.12419"
+
+            console.log(a,b);
+            console.log(c.toFixed(2));//el metodo to fixed nos dara el numero decimal con el numero de decimales que 
+            console.log(c.toFixed(6));//le pongamos en el parametro
+
+            console.log(parseInt(c))//parseint puede convertir decimales en enteros
+
+            console.log(typeof(c),typeof(d))//typeof nos regresa el tipo de valor de la variable ingresada
+
+            console.log(a+b)
+            console.log(c+d)//si intentamos sumar un numero y un string salen juntos
+            console.log(c+parseInt(d))//con parseInt podemos incluso convertir un string a number
+
+BOOLEANOS
+        // Falsy:(valores que dentro del Boolean nos regresarian false)
+            // false
+            // 0
+            // -0
+            // 0n (BigInt cero)
+            // "" (cadena vacía)
+            // null
+            // undefined
+            // NaN (Not a Number)
+        // Truthy:(valores que dentro del Boolean nos regresarian true)
+            // Cualquier número que no sea cero (1, -1, 0.5, etc.)
+            // Cualquier string que no sea una cadena vacía ("texto", " " , "false", etc.)
+            // true
+            // Objetos ({}, [], new Object(), etc.)
+            // Funciones (definidas y no definidas)
+            // Instancias de clases personalizadas
+            // Cualquier otro valor que no esté en la lista de valores falsy
+
+INDEFINIDOS
+        //undefined es lo que nos sale cuando no le damos ningun valor al declarar una variable
+            let indefinida
+            console.log(indefinida)
+        //null es un valor asignable a una variable para que no contenga nada
+            let nula = null
+            console.log(nula)
+        //NaN(Not a Number) nos sale al querer operar numeros con otros tipos de datos
+            let noNumerica="no soy un numero" / 2
+            console.log(noNumerica);
