@@ -21,3 +21,14 @@ console.log(e)
 
 const f = new Array(1,2,3,true,false)
 console.log(f)
+
+const colors=new Array("rojo","azul","rosa")
+console.log(colors)
+colors.push("Negro")
+console.log(colors)
+colors.pop()
+console.log(colors)
+
+colors.forEach(function (element,index) {
+  console.log(`<li id=${index}>${element}</li>`);  
+})
