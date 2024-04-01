@@ -17,12 +17,6 @@ console.log("División:", division);
 
 let modulo = a % b;
 console.log("Módulo:", modulo);
-
-let incremento = ++a;
-console.log("Incremento:", incremento);
-
-let decremento = --b;
-console.log("Decremento:", decremento);
 // Comparadores de Relación
 // -------------------------------------------
 let x = 10;
@@ -57,3 +51,38 @@ console.log(7===7)
 console.log("7"===7)
 console.log(7===7)
 console.log(0===false)
+
+
+
+//INCREMENTOS Y DECREMENTOS
+// -------------------------------------------
+let i = 1
+i+=1
+console.log("Incremento(+=)",i);
+i-=1
+console.log("Decremento(-=)",i);
+// -------------------------------------------
+// OPERADOR UNARIO
+let u = 2
+console.log(++u)//en ocasiones este operador no llega a sumar antes de imprimir en la misma linea del console log
+console.log(u++)
+u++
+console.log(u)
+u--
+console.log(u)
+++u
+console.log(u)
+--u
+console.log(u)
+
+
+// -------------------------------------------
+//OPERADORES LOGICOS
+console.log("!true",!true)///!NOT se encarga de negar o regresarnos el valor contrario al que afecta
+console.log("!false",!false)
+console.log(" ´9´ ===9 || 9===9","9"===9 || 9===9)/// || OR se encarga de regresarnos el valor ya sea
+                                                    ///de una o dos condicionales, con que uno sea verdadero
+                                                    ///nos devolvera true
+console.log(" ´9´ ===9 && 9===9","9"===9 && 9===9)/// && AND se encarga de regresarnos el valor ya sea
+                                                    ///de una o dos condicionales, tienen que ser ambos true para que 
+                                                    ///nos devuelva true
