@@ -32,6 +32,6 @@ arregloGrande= Array(1000000)
 for (let i = 0; i < arregloGrande.length; i++) 
 {
     arregloGrande[i]=i
-    console.count("cuantas veces se ejecuto el for:")
+    // console.count("cuantas veces se ejecuto el for:")//es peligroso ejecutar esto ya que se ejecuta 1 millon de veces 
 }
 console.timeEnd("Cuanto tarda en ejecutarse:")
