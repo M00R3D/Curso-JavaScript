@@ -1,7 +1,7 @@
-                // La clase recibirá un objeto al momento de instanciarse con los siguentes datos
+            // La clase recibirá un objeto al momento de instanciarse con los siguentes datos
                 // : id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
                 //   - Todos los datos del objeto son obligatorios.
-                s//   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+                //   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
                 //      7 restantes números.
                 //   - Valida que el título no rebase los 100 caracteres.
                 //   - Valida que el director no rebase los 50 caracteres.
