@@ -14,6 +14,7 @@ const intervaloA =setInterval(() => {
     if(count<=10)
     {
         console.log(`ejecucion del setInterval cada segundo, veces ejecutado:${count}`)
+        console.log(new Date().toLocaleDateString())
         count++
     }else{clearInterval(intervaloA)}
 }, 100);
