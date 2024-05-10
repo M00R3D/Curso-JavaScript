@@ -30,3 +30,15 @@ const obj3={
     }
 }
 obj3.imprimir()
+
+function objeto(nombre){
+    const that = this
+    this.nombre=nombre
+
+    return function(){
+        console.log(that.nombre)
+    }
+}
+
+let a = new objeto("a")
+a()
