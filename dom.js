@@ -1,0 +1,1 @@
+let texto = "este es un texto en un dato de tipo string"
