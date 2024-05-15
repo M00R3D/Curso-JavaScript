@@ -1,1 +1,13 @@
 let texto = "este es un texto en un dato de tipo string"
+const hablar = (texto) => speechSynthesis.speak(new SpeechSynthesisUtterance(texto))
+hablar(texto)
+console.log(document.head)
+console.log(document.body)
+console.log(document.documentElement)
+console.log(document.doctype)
+console.log(document.charset)
+console.log(document.title)
+console.log(document.links)
+console.log(document.images)
+console.log(document.forms)
+console.log(document.styleSheets)
