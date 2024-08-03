@@ -1,65 +1,64 @@
-// // eventos.js
+export function evento() {
+    console.log("hola");
+}
 
-// // Función que se ejecuta al hacer clic en el botón
-// export function evento() {
-//     console.log("hola");
-// }
+document.addEventListener('DOMContentLoaded', () => {
+    // Delegación de eventos para el contenedor principal
+    document.body.addEventListener('click', (e) => {
+        // Delegación para botón genérico
+        if (e.target.tagName === 'BUTTON' && e.target.id === '') {
+            evento();
+        }
 
-// // Agregar el event listener para el botón una vez que el DOM esté cargado
-// document.addEventListener('DOMContentLoaded', () => {
-//     const button = document.querySelector('button');
-//     if (button) {
-//         button.addEventListener('click', evento);
-//     }
+        // Delegación para evento semántico
+        if (e.target.id === 'evento-semantico') {
+            alert("Hola Mundo Manejador de Eventos Semántico");
+            console.log(e);
+            console.log(event);
+        }
 
-//     const eventoSemantico = document.getElementById("evento-semantico"),
-//           eventoMultiple = document.getElementById("evento-multiple"),
-//           eventoRemover = document.getElementById("evento-remover");
+        // Delegación para evento múltiple
+        if (e.target.id === 'evento-multiple') {
+            alert("Hola Mundo Manejador de Eventos Múltiple");
+            console.log(e);
+            console.log(e.type);
+            console.log(e.target);
+            console.log(event);
+            saludar();
+            saludar("Jon");
+        }
 
-//     if (eventoSemantico) {
-//         eventoSemantico.onclick = function(e) {
-//             alert("Hola Mundo Manejador de Eventos Semántico");
-//             console.log(e);
-//             console.log(event);
-//         };
-//     }
+        // Delegación para evento remover
+        if (e.target.id === 'evento-remover' && e.type === 'dblclick') {
+            alert(`Removiendo el evento de tipo ${e.type}`);
+            console.log(e);
+            e.target.removeEventListener("dblclick", arguments.callee);
+        }
+    });
 
-//     if (eventoMultiple) {
-//         eventoMultiple.addEventListener("click", (e) => {
-//             alert("Hola Mundo Manejador de Eventos Múltiple");
-//             console.log(e);
-//             console.log(e.type);
-//             console.log(e.target);
-//             console.log(event);
-//         });
+    // Delegación de eventos para los divs con clase "eventos-flujo"
+    const $eventosFlujo = document.querySelector('.eventos-flujo');
+    if ($eventosFlujo) {
+        $eventosFlujo.addEventListener('click', (e) => {
+            if (e.target.classList.contains('div1') || e.target.classList.contains('div2') || e.target.classList.contains('div3')) {
+                flujoEventos.call(e.target, e);
+            }
+        }, true);
 
-//         eventoMultiple.addEventListener("click", () => {
-//             saludar();
-//             saludar("Jon");
-//         });
-//     }
+        // Ejemplo de stopPropagation
+        document.querySelector("#div2").addEventListener("click", (e) => {
+            e.stopPropagation();
+            console.log("Se ha detenido la propagación en #div2");
+        }, { capture: false });
+    }
 
-//     if (eventoRemover) {
-//         const removerDobleClick = (e) => {
-//             alert(`Removiendo el evento de tipo ${e.type}`);
-//             console.log(e);
-//             eventoRemover.removeEventListener("dblclick", removerDobleClick); // Remover el event listener
-//         };
-
-//         eventoRemover.addEventListener("dblclick", removerDobleClick);
-//     }
-// });
-
-// function holaMundo() {
-//     alert("Hola Mundo");
-//     console.log(event);
-// }
-
-// function saludar(nombre = "Desconocid@") {
-//     alert(`Hola ${nombre}`);
-// }
-document.addEventListener("DOMContentLoaded", () => {
-    const $divsEventos = document.querySelectorAll(".eventos-flujo div");
+    // Delegación de eventos para enlace con clase "link-dom"
+    document.body.addEventListener('click', (e) => {
+        if (e.target.classList.contains('link-dom')) {
+            e.preventDefault();
+            console.log("Se ha prevenido la acción predeterminada del enlace");
+        }
+    });
 
     function flujoEventos(e) {
         console.log(`Hola te saluda ${this.className}, el click lo originó ${e.target.className}`);
@@ -67,85 +66,51 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(`Fase del evento: ${e.eventPhase}`); // 1: Capturing, 2: At target, 3: Bubbling
     }
 
-    console.log($divsEventos);
-
-    $divsEventos.forEach((div) => {
-        // Fase de burbuja (por defecto)
-        div.addEventListener("click", flujoEventos, {
-            capture: false, // Específicamente fase de burbuja
-            once: true // El listener se ejecuta una vez y luego se elimina
-        });
-        // Fase de captura
-        div.addEventListener("click", flujoEventos, {
-            capture: true, // Específicamente fase de captura
-            once: true // El listener se ejecuta una vez y luego se elimina
-        });
-    });
-
-    // Ejemplo de stopPropagation
-    document.querySelector("#div2").addEventListener("click", (e) => {
-        e.stopPropagation();
-        console.log("Se ha detenido la propagación en #div2");
-    }, { capture: false });
-
-    // Ejemplo de preventDefault
-    document.querySelector("a.link-dom").addEventListener("click", (e) => {
-        e.preventDefault();
-        console.log("Se ha prevenido la acción predeterminada del enlace");
-    });
-
-    const button = document.querySelector('button');
-    if (button) {
-        button.addEventListener('click', evento);
-    }
-
-    const eventoSemantico = document.getElementById("evento-semantico"),
-          eventoMultiple = document.getElementById("evento-multiple"),
-          eventoRemover = document.getElementById("evento-remover");
-
-    if (eventoSemantico) {
-        eventoSemantico.onclick = function(e) {
-            alert("Hola Mundo Manejador de Eventos Semántico");
-            console.log(e);
-            console.log(event);
-        };
-    }
-
-    if (eventoMultiple) {
-        eventoMultiple.addEventListener("click", (e) => {
-            alert("Hola Mundo Manejador de Eventos Múltiple");
-            console.log(e);
-            console.log(e.type);
-            console.log(e.target);
-            console.log(event);
-        });
-
-        eventoMultiple.addEventListener("click", () => {
-            saludar();
-            saludar("Jon");
-        });
-    }
-
-    if (eventoRemover) {
-        const removerDobleClick = (e) => {
-            alert(`Removiendo el evento de tipo ${e.type}`);
-            console.log(e);
-            eventoRemover.removeEventListener("dblclick", removerDobleClick); // Remover el event listener
-        };
-
-        eventoRemover.addEventListener("dblclick", removerDobleClick);
+    function saludar(nombre = "Desconocid@") {
+        alert(`Hola ${nombre}`);
     }
 });
 
-export function evento() {
-    console.log("hola");
-}
+window.addEventListener("resize",(e)=>{
+        console.log("");console.log("");console.log("");
+        console.log("innerHeight = "+window.innerHeight+" px")
+        console.log("innerWidth = "+window.innerWidth+" px")
+        console.log("outerHeight = "+window.outerHeight+" px")
+        console.log("outerWidth = "+window.outerWidth+" px")
+})
 
-function holaMundo() {
-    alert("Hola Mundo");
-    console.log(event);
-}
+window.addEventListener("scroll",(e)=>{
+    console.clear()
+    console.log("scrollX = "+window.scrollX+" px")
+    console.log("scrollY = "+window.scrollY+" px")
+})
 
-function saludar(nombre = "Desconocid@") {
-    alert(`Hola ${nombre}`);
-}
+window.addEventListener("load",(e)=>{
+    console.log("load")
+    console.log("screenX = "+window.screenX+" px")
+    console.log("screenY = "+window.screenY+" px")
+})
+
+window.addEventListener("DOMContentLoaded",(e)=>{
+    console.log("DOMContentLoaded")
+    console.log("screenX = "+window.screenX+" px")
+    console.log("screenY = "+window.screenY+" px")
+})  
+
+
+
+const $btnAbrir=document.getElementById("abrir-ventana")
+const $btnCerrar=document.getElementById("cerrar-ventana")
+const $btnImprimir=document.getElementById("imprimir-ventana")
+let ventana
+$btnAbrir.addEventListener("click",(e)=>{
+    ventana= window.open("https://www.google.com/")
+})
+
+$btnCerrar.addEventListener("click",(e)=>{
+    ventana.close()
+})
+
+$btnImprimir.addEventListener("click",(e)=>{
+    ventana= window.print()
+})
