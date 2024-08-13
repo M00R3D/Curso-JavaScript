@@ -102,9 +102,11 @@ window.addEventListener("DOMContentLoaded",(e)=>{
 const $btnAbrir=document.getElementById("abrir-ventana")
 const $btnCerrar=document.getElementById("cerrar-ventana")
 const $btnImprimir=document.getElementById("imprimir-ventana")
+const url = new URL("https://www.youtube.com/watch?v=ISApT6Lersk&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=81");
+
 let ventana
 $btnAbrir.addEventListener("click",(e)=>{
-    ventana= window.open("https://www.google.com/")
+    ventana= window.open(url)
 })
 
 $btnCerrar.addEventListener("click",(e)=>{
@@ -114,3 +116,35 @@ $btnCerrar.addEventListener("click",(e)=>{
 $btnImprimir.addEventListener("click",(e)=>{
     ventana= window.print()
 })
+
+console.log(url.searchParams.get("name")); // "ChatGPT"
+console.log(url.searchParams.get("age")); // "4"
+
+url.searchParams.set("age", "5");
+console.log(url.toString()); 
+
+url.pathname = "/nueva-ruta";
+console.log(url.href);
+
+document.getElementById("back-button").addEventListener("click", () => {
+    history.back(); // Ir hacia atrás en el historial
+});
+
+document.getElementById("forward-button").addEventListener("click", () => {
+    history.forward(); // Ir hacia adelante en el historial
+});
+
+document.getElementById("pushstate-button").addEventListener("click", () => {
+    history.pushState({ page: 1 }, "title 1", "/nueva-pagina");
+    console.log("Nueva página añadida al historial");
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Información del navegador:");
+    console.log("User Agent: " + navigator.userAgent);
+    console.log("Plataforma: " + navigator.platform);
+    console.log("Idioma: " + navigator.language);
+    console.log("Cookies habilitadas: " + navigator.cookieEnabled);
+    console.log("En línea: " + navigator.onLine);
+});
